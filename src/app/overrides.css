@@ -41,6 +41,12 @@ html, body, .main, .home-fold, .fold-animaction,
 .fold-animation__container, .fold-animation__lottie {
   background-color: #1e6b3c !important;
 }
+
+/* Fix sticky: overflow-x hidden on body breaks sticky in some browsers */
+html, body {
+  overflow-x: clip !important;
+  overflow-y: visible !important;
+}
 .fold-animation__texts {
   background-color: transparent !important;
   z-index: 2;
