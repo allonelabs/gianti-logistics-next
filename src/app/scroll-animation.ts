@@ -24,8 +24,9 @@ export function initScrollAnimation() {
   const numTexts = texts.length;
   if (!wrapper || !container) return;
 
-  container.style.cssText =
-    "width:100%;height:100vh;display:flex;justify-content:center;align-items:center;overflow:hidden;position:relative;";
+  // Don't override container positioning — let CSS sticky handle it
+  container.style.overflow = "hidden";
+
   texts.forEach(function (t, i) {
     if (i === 0) {
       t.style.opacity = "1";
@@ -71,34 +72,20 @@ export function initScrollAnimation() {
 
   function onScroll() {
     const rect = wrapper.getBoundingClientRect();
-    const wTop = window.scrollY + rect.top;
     const wH = wrapper.offsetHeight;
-    const scrollIn = window.scrollY - wTop;
+    // Progress based on how far the wrapper top has scrolled past viewport top
+    const scrollIn = -rect.top;
     const range = wH - window.innerHeight;
     if (range <= 0) return;
     const progress = Math.max(0, Math.min(1, scrollIn / range));
 
-    if (scrollIn >= 0 && scrollIn <= range) {
-      container.style.position = "fixed";
-      container.style.top = "0";
-      container.style.left = "0";
-      container.style.width = "100%";
-      container.style.zIndex = "5";
-    } else if (scrollIn > range) {
-      container.style.position = "absolute";
-      container.style.top = wH - window.innerHeight + "px";
-      container.style.left = "0";
-      container.style.width = "100%";
-    } else {
-      container.style.position = "relative";
-      container.style.top = "auto";
-    }
-
+    // Update Lottie frame
     anims.forEach(function (a) {
       if (a.isLoaded)
         a.goToAndStop(Math.round(progress * (a.totalFrames - 1)), true);
     });
 
+    // Title fade
     if (title) {
       if (progress < 0.04) {
         title.style.opacity = "1";
@@ -112,6 +99,7 @@ export function initScrollAnimation() {
       }
     }
 
+    // Text sequence
     if (numTexts > 0) {
       const seg = 0.85 / numTexts;
       texts.forEach(function (t, i) {
