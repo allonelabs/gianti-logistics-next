@@ -130,7 +130,19 @@ export function initScrollAnimation() {
     }
   }
 
-  window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", onScroll);
+  // Use rAF to batch scroll updates — prevents jank on mobile
+  let ticking = false;
+  function requestScroll() {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(() => {
+        onScroll();
+        ticking = false;
+      });
+    }
+  }
+
+  window.addEventListener("scroll", requestScroll, { passive: true });
+  window.addEventListener("resize", requestScroll);
   onScroll();
 }

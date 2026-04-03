@@ -30,9 +30,28 @@ html[lang="ka"] .about-section__subttile {
   }
 }
 
-/* Hero container needs relative for skip button positioning */
+/* Hero container */
 .home-fold {
   position: relative;
+  background-color: var(--midnight--950, #1e6b3c);
+}
+
+/* Prevent white flash during scroll repaint on mobile */
+.fold-animaction,
+.fold-animation__container,
+.fold-animation__lottie {
+  background-color: var(--midnight--950, #1e6b3c);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: contents;
+}
+.fold-animation__container {
+  -webkit-overflow-scrolling: touch;
+}
+.fold-animation__lottie svg {
+  will-change: transform;
 }
 
 /* Hero skip button - small, visible, only within hero */
