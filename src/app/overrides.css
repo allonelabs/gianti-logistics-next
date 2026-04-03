@@ -1,0 +1,39 @@
+/* Override: navbar accent button -> white with black text */
+.button.button--accent.button--talk-nav {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+.button.button--accent.button--talk-nav:hover {
+  background-color: #f0f0f0 !important;
+  color: #000000 !important;
+}
+.button.button--accent.button--talk-nav .button__text {
+  color: #000000 !important;
+}
+
+/* Override: feedback banner card -> green */
+.feedback-banner {
+  background-color: #1e6b3c !important;
+}
+.feedback-banner__bg-gradient {
+  background-image: linear-gradient(
+    90deg,
+    rgba(30, 107, 60, 0),
+    rgb(30, 107, 60) 50%,
+    rgb(30, 107, 60)
+  ) !important;
+}
+
+/* Override: button on feedback banner card -> white */
+.feedback-banner .button.button--inverse-outline {
+  background-color: #ffffff !important;
+  color: #1e6b3c !important;
+  border-color: #ffffff !important;
+}
+.feedback-banner .button.button--inverse-outline:hover {
+  background-color: #f0f0f0 !important;
+  color: #1e6b3c !important;
+}
+.feedback-banner .button.button--inverse-outline .button__text {
+  color: #1e6b3c !important;
+}
