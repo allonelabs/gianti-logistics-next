@@ -51,16 +51,7 @@ html, body, .main, .home-fold, .fold-animaction,
   object-fit: cover;
 }
 
-/* GPU layer promotion for smooth mobile scroll */
-.fold-animaction {
-  -webkit-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
-}
-.fold-animation__container {
-  -webkit-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
-  -webkit-overflow-scrolling: touch;
-}
+/* GPU layer — only on lottie, NOT on parent (breaks sticky) */
 .fold-animation__lottie {
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
