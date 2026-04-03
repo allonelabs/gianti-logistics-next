@@ -36,11 +36,19 @@ html[lang="ka"] .about-section__subttile {
   background-color: var(--midnight--950, #1e6b3c);
 }
 
-/* Prevent white flash — paint everything green */
+/* Prevent white flash — paint everything green (except text overlay) */
 html, body, .main, .home-fold, .fold-animaction,
-.fold-animation__container, .fold-animation__lottie,
-.fold-animation__texts {
+.fold-animation__container, .fold-animation__lottie {
   background-color: #1e6b3c !important;
+}
+.fold-animation__texts {
+  background-color: transparent !important;
+  z-index: 2;
+}
+.fold-animation__lottie canvas {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
 }
 
 /* GPU layer promotion for smooth mobile scroll */
