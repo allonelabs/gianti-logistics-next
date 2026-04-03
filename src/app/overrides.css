@@ -1,3 +1,65 @@
+/* Force green color palette over CDN blue defaults */
+:root {
+  --midnight--50: #eefcf2 !important;
+  --midnight--100: #d4f8de !important;
+  --midnight--200: #b0f3c4 !important;
+  --midnight--300: #86eba5 !important;
+  --midnight--400: #5ade84 !important;
+  --midnight--500: #34d068 !important;
+  --midnight--600: #1DB954 !important;
+  --midnight--700: #1a9e50 !important;
+  --midnight--800: #2aa05a !important;
+  --midnight--900: #22884e !important;
+  --midnight--950: #1e6b3c !important;
+  --midnight--975: #1a5c35 !important;
+}
+
+/* Fix: Georgian subtitle */
+.about-section__subttile {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+html[lang="ka"] .about-section__subttile {
+  font-size: 72px;
+  line-height: 76px;
+}
+@media screen and (max-width: 991px) {
+  html[lang="ka"] .about-section__subttile {
+    font-size: 36px;
+    line-height: 40px;
+  }
+}
+
+/* Hero container needs relative for skip button positioning */
+.home-fold {
+  position: relative;
+}
+
+/* Hero skip button - small, visible, only within hero */
+.home-fold__skip {
+  opacity: 1 !important;
+  transform: none !important;
+  position: absolute !important;
+  bottom: 2rem !important;
+  left: 2rem !important;
+  z-index: 10 !important;
+}
+.home-fold__skip .button {
+  padding: 0.4rem 1.2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.home-fold__skip .button:hover {
+  opacity: 1;
+}
+
+/* Gap between locations and services */
+.locations-section {
+  margin-bottom: 6rem;
+}
+
 /* Override: navbar accent button -> white with black text */
 .button.button--accent.button--talk-nav {
   background-color: #ffffff !important;

@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="w-mod-js w-mod-ix">
+    <html lang="ka" className="w-mod-js w-mod-ix">
       <head>
         <link
           href="https://cdn.prod.website-files.com/660eb6abe8cde3bea6a9c111/css/freezpak.webflow.shared.d6e0db068.min.css"
