@@ -36,23 +36,33 @@ html[lang="ka"] .about-section__subttile {
   background-color: var(--midnight--950, #1e6b3c);
 }
 
-/* Prevent white flash during scroll repaint on mobile */
-.fold-animaction,
-.fold-animation__container,
-.fold-animation__lottie {
-  background-color: var(--midnight--950, #1e6b3c);
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  will-change: contents;
+/* Prevent white flash — paint everything green */
+html, body, .main, .home-fold, .fold-animaction,
+.fold-animation__container, .fold-animation__lottie,
+.fold-animation__texts {
+  background-color: #1e6b3c !important;
+}
+
+/* GPU layer promotion for smooth mobile scroll */
+.fold-animaction {
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
 }
 .fold-animation__container {
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
   -webkit-overflow-scrolling: touch;
 }
-.fold-animation__lottie svg {
-  will-change: transform;
+.fold-animation__lottie {
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
 }
+
+/* Non-hero sections keep their own backgrounds */
+.locations-section { background-color: #1e6b3c; }
+.services-section { background-color: var(--fill--default--main-inverse, #1e6b3c); }
+.about-section { background-color: var(--fill--default--main, #fafafa); }
+.footer { background-color: var(--fill--default--main-inverse, #1e6b3c); }
 
 /* Hero skip button - small, visible, only within hero */
 .home-fold__skip {

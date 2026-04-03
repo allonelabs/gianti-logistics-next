@@ -10,6 +10,7 @@ declare const lottie: {
     goToAndStop: (frame: number, isFrame: boolean) => void;
     isLoaded: boolean;
     totalFrames: number;
+    destroy: () => void;
   };
 };
 
@@ -24,7 +25,13 @@ export function initScrollAnimation() {
   const numTexts = texts.length;
   if (!wrapper || !container) return;
 
-  // Don't override container positioning — let CSS sticky handle it
+  const isMobile = window.innerWidth < 768;
+
+  // Reduce scroll distance on mobile for lighter feel
+  if (isMobile) {
+    wrapper.style.minHeight = "1200vh";
+  }
+
   container.style.overflow = "hidden";
 
   texts.forEach(function (t, i) {
@@ -49,17 +56,19 @@ export function initScrollAnimation() {
     goToAndStop: (frame: number, isFrame: boolean) => void;
   }
   const anims: LottieAnim[] = [];
+  let lastFrame = -1;
+
   document
     .querySelectorAll('[data-animation-type="lottie"]')
     .forEach(function (el) {
       const src = el.getAttribute("data-src");
       if (!src) return;
-      el.querySelectorAll("svg").forEach((s) => s.remove());
+      el.querySelectorAll("svg, canvas").forEach((s) => s.remove());
       (el as HTMLElement).style.cssText =
         "width:100%;height:100%;position:absolute;top:0;left:0;";
       const a = lottie.loadAnimation({
         container: el,
-        renderer: "svg",
+        renderer: isMobile ? "canvas" : "svg",
         loop: false,
         autoplay: false,
         path: src,
@@ -73,19 +82,23 @@ export function initScrollAnimation() {
   function onScroll() {
     const rect = wrapper.getBoundingClientRect();
     const wH = wrapper.offsetHeight;
-    // Progress based on how far the wrapper top has scrolled past viewport top
     const scrollIn = -rect.top;
     const range = wH - window.innerHeight;
     if (range <= 0) return;
     const progress = Math.max(0, Math.min(1, scrollIn / range));
 
-    // Update Lottie frame
-    anims.forEach(function (a) {
-      if (a.isLoaded)
-        a.goToAndStop(Math.round(progress * (a.totalFrames - 1)), true);
-    });
+    // Only update Lottie when frame actually changes
+    const frame = anims.length > 0 && anims[0].isLoaded
+      ? Math.round(progress * (anims[0].totalFrames - 1))
+      : -1;
 
-    // Title fade
+    if (frame !== lastFrame) {
+      lastFrame = frame;
+      anims.forEach(function (a) {
+        if (a.isLoaded) a.goToAndStop(frame, true);
+      });
+    }
+
     if (title) {
       if (progress < 0.04) {
         title.style.opacity = "1";
@@ -99,7 +112,6 @@ export function initScrollAnimation() {
       }
     }
 
-    // Text sequence
     if (numTexts > 0) {
       const seg = 0.85 / numTexts;
       texts.forEach(function (t, i) {
@@ -130,7 +142,6 @@ export function initScrollAnimation() {
     }
   }
 
-  // Use rAF to batch scroll updates — prevents jank on mobile
   let ticking = false;
   function requestScroll() {
     if (!ticking) {
