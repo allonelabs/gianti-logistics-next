@@ -15,73 +15,115 @@ export const metadata: Metadata = {
 const offices = [
   {
     city: "Tbilisi",
-    tag: "Headquarters",
-    address: "12b Kazbegi Ave, Tbilisi 0160, Georgia",
+    tag: "HQ",
+    country: "Georgia",
+    address: "12b Kazbegi Ave, Tbilisi 0160",
+    phone: "+995 322 457 457",
     i18nCity: "loc-tbilisi",
   },
   {
     city: "Poti",
-    tag: "Terminal & Operations",
+    tag: "Terminal",
+    country: "Georgia",
     address: "Paliashvili Str. 12, Poti 4400",
+    phone: "+995 322 112 072",
     i18nCity: "loc-poti",
   },
   {
     city: "Batumi",
-    tag: "Representative Office",
+    tag: "Office",
+    country: "Georgia",
     address: "Batumi, Georgia",
+    phone: "",
     i18nCity: "loc-batumi",
   },
   {
     city: "Baku",
-    tag: "Azerbaijan",
-    address: "Blue Office Business Center, 8 November Ave., Khatai Dist., AZ 1025",
+    tag: "Office",
+    country: "Azerbaijan",
+    address: "Blue Office Business Center, 6th floor, 8 November Ave.",
+    phone: "+994 502 340 842",
     i18nCity: "loc-baku",
   },
   {
     city: "Tashkent",
-    tag: "Uzbekistan",
-    address: "Afrosiab 4, Tashkent",
+    tag: "Office",
+    country: "Uzbekistan",
+    address: "Afrosiab 4",
+    phone: "+998 71 200 07 60",
     i18nCity: "loc-tashkent",
   },
   {
     city: "Almaty",
-    tag: "Kazakhstan",
-    address: "Seyfullin Avenue 420, Business Centre Cascade, Office 304",
+    tag: "Office",
+    country: "Kazakhstan",
+    address: "Seyfullin Avenue 420, Cascade, Office 304",
+    phone: "+7 705 422 42 45",
     i18nCity: "loc-almaty",
   },
   {
     city: "Istanbul",
-    tag: "Turkey",
-    address: "Barbaros Mh. Ahlat Sk. Varyap Meridian E1 Blok No: 1 A/7, Atasehir",
+    tag: "Office",
+    country: "Turkey",
+    address: "Barbaros Mh., Varyap Meridian E1 Blok, Atasehir",
+    phone: "+90 535 200 34 78",
     i18nCity: "loc-istanbul",
   },
 ];
 
+const capabilities = [
+  "Marine Operations",
+  "Terminal Handling",
+  "Land Freight",
+  "Rail Freight",
+  "Ocean Freight",
+  "Air Freight",
+  "Project Logistics",
+  "Consulting",
+];
+
 export default function AboutPage() {
   return (
-    <div className="min-h-screen">
+    <div style={{ backgroundColor: "#1e6b3c", color: "#f2fcf1", minHeight: "100vh" }}>
+
       {/* Hero */}
-      <section
-        className="relative py-28 px-6 md:py-36"
-        style={{ backgroundColor: "#1e6b3c" }}
-      >
-        <div className="max-w-5xl mx-auto">
-          <p
-            className="uppercase tracking-[0.25em] text-sm font-medium mb-4"
-            style={{ color: "#34d068" }}
-            data-i18n="about-hero-tag"
+      <section style={{ backgroundColor: "#163d28", padding: "120px 24px 80px" }}>
+        <div style={{ maxWidth: 960, margin: "0 auto" }}>
+          <div
+            style={{
+              display: "inline-block",
+              padding: "6px 16px",
+              border: "1px solid rgba(255,255,255,0.25)",
+              borderRadius: 100,
+              fontSize: 13,
+              letterSpacing: "0.15em",
+              textTransform: "uppercase",
+              color: "rgba(255,255,255,0.7)",
+              marginBottom: 24,
+            }}
           >
             Est. 2005 &mdash; Tbilisi, Georgia
-          </p>
+          </div>
           <h1
-            className="text-4xl md:text-6xl font-bold text-white leading-tight mb-6"
+            style={{
+              fontSize: "clamp(36px, 6vw, 64px)",
+              fontWeight: 700,
+              lineHeight: 1.1,
+              marginBottom: 20,
+              color: "#ffffff",
+            }}
             data-i18n="about-hero-title"
           >
             About Gianti Logistics
           </h1>
           <p
-            className="text-xl md:text-2xl font-light max-w-2xl"
-            style={{ color: "rgba(255,255,255,0.8)" }}
+            style={{
+              fontSize: "clamp(18px, 2.5vw, 24px)",
+              lineHeight: 1.5,
+              maxWidth: 640,
+              color: "rgba(255,255,255,0.75)",
+              fontWeight: 300,
+            }}
             data-i18n="about-hero-subtitle"
           >
             More than just logistics &mdash; a partner embedded in the
@@ -90,113 +132,97 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* History */}
-      <section className="py-20 px-6 md:py-28 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-12 md:gap-20 items-start">
-            <div className="shrink-0">
-              <span
-                className="block text-7xl md:text-8xl font-black leading-none"
-                style={{ color: "#1DB954" }}
-              >
-                2005
-              </span>
-              <span
-                className="block text-sm uppercase tracking-widest mt-2 font-medium"
-                style={{ color: "#1e6b3c" }}
-                data-i18n="about-founded-label"
-              >
-                Year Founded
-              </span>
-            </div>
-            <div>
-              <h2
-                className="text-2xl md:text-3xl font-bold mb-6"
-                style={{ color: "#1e6b3c" }}
-                data-i18n="about-history-title"
-              >
-                Two Decades of Moving What Matters
-              </h2>
-              <p
-                className="text-lg leading-relaxed text-gray-700 mb-4"
-                data-i18n="about-history-p1"
-              >
-                Founded in 2005 in Tbilisi, Georgia, Gianti Logistics has grown
-                into a leading transport and logistics provider specializing in
-                containerized, heavy lift, and project cargos throughout Georgia,
-                CIS countries, and worldwide.
-              </p>
-              <p
-                className="text-lg leading-relaxed text-gray-700"
-                data-i18n="about-history-p2"
-              >
-                From a single office to a network spanning six countries, our
-                growth is built on operational precision, deep regional
-                expertise, and an unwavering commitment to moving complex cargo
-                safely and on schedule.
-              </p>
-            </div>
+      {/* Our Story */}
+      <section style={{ padding: "80px 24px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+        <div style={{ maxWidth: 960, margin: "0 auto" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 32 }}>
+            <div style={{ width: 40, height: 2, backgroundColor: "#1DB954" }} />
+            <span
+              style={{
+                fontSize: 13,
+                textTransform: "uppercase",
+                letterSpacing: "0.2em",
+                color: "#1DB954",
+                fontWeight: 600,
+              }}
+            >
+              Our Story
+            </span>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 32 }}>
+            <p
+              style={{ fontSize: 18, lineHeight: 1.8, color: "rgba(255,255,255,0.85)" }}
+              data-i18n="about-history-p1"
+            >
+              Founded in 2005 in Tbilisi, Georgia, Gianti Logistics has grown
+              into a leading transport and logistics provider specializing in
+              containerized, heavy lift, and project cargos throughout Georgia,
+              CIS countries, and worldwide.
+            </p>
+            <p
+              style={{ fontSize: 18, lineHeight: 1.8, color: "rgba(255,255,255,0.85)" }}
+              data-i18n="about-history-p2"
+            >
+              From a single office to a network spanning six countries, our
+              growth is built on operational precision, deep regional
+              expertise, and an unwavering commitment to moving complex cargo
+              safely and on schedule.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* What We Do — alternating rhythm, denser section */}
-      <section className="py-16 px-6" style={{ backgroundColor: "#f7faf8" }}>
-        <div className="max-w-5xl mx-auto">
-          <h2
-            className="text-2xl md:text-3xl font-bold mb-3"
-            style={{ color: "#1e6b3c" }}
-            data-i18n="about-whatwedo-title"
-          >
-            What We Do
-          </h2>
-          <div
-            className="w-16 h-1 mb-10 rounded-full"
-            style={{ backgroundColor: "#1DB954" }}
-          />
-
-          <div className="grid md:grid-cols-2 gap-x-16 gap-y-8">
-            <div>
-              <p
-                className="text-base leading-relaxed text-gray-700"
-                data-i18n="about-whatwedo-p1"
-              >
-                Gianti Logistics specializes in the handling and transportation
-                of containerized, in gauge, out of gauge, heavy lift, and
-                project cargos. Our services cover the full logistics chain
-                &mdash; from initial route survey through final delivery.
-              </p>
-            </div>
-            <div>
-              <p
-                className="text-base leading-relaxed text-gray-700"
-                data-i18n="about-whatwedo-p2"
-              >
-                Our core capabilities include marine operations, terminal
-                handling, multimodal transport across land, rail, ocean, and air,
-                project logistics for oversized cargo, and expert consulting for
-                complex transport planning.
-              </p>
-            </div>
+      {/* What We Do */}
+      <section style={{ padding: "80px 24px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+        <div style={{ maxWidth: 960, margin: "0 auto" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 32 }}>
+            <div style={{ width: 40, height: 2, backgroundColor: "#1DB954" }} />
+            <span
+              style={{
+                fontSize: 13,
+                textTransform: "uppercase",
+                letterSpacing: "0.2em",
+                color: "#1DB954",
+                fontWeight: 600,
+              }}
+            >
+              What We Do
+            </span>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-3">
-            {[
-              "Marine Operations",
-              "Terminal Handling",
-              "Land Freight",
-              "Rail Freight",
-              "Ocean Freight",
-              "Air Freight",
-              "Project Logistics",
-              "Consulting",
-            ].map((cap) => (
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24 }}>
+            <p
+              style={{ fontSize: 16, lineHeight: 1.8, color: "rgba(255,255,255,0.8)" }}
+              data-i18n="about-whatwedo-p1"
+            >
+              Gianti Logistics specializes in the handling and transportation
+              of containerized, in gauge, out of gauge, heavy lift, and
+              project cargos. Our services cover the full logistics chain
+              &mdash; from initial route survey through final delivery.
+            </p>
+            <p
+              style={{ fontSize: 16, lineHeight: 1.8, color: "rgba(255,255,255,0.8)" }}
+              data-i18n="about-whatwedo-p2"
+            >
+              Our core capabilities include marine operations, terminal
+              handling, multimodal transport across land, rail, ocean, and air,
+              project logistics for oversized cargo, and expert consulting for
+              complex transport planning.
+            </p>
+          </div>
+
+          <div style={{ marginTop: 40, display: "flex", flexWrap: "wrap", gap: 10 }}>
+            {capabilities.map((cap) => (
               <span
                 key={cap}
-                className="inline-block px-4 py-2 text-sm font-medium rounded-full border"
                 style={{
-                  borderColor: "#1DB954",
-                  color: "#1e6b3c",
+                  display: "inline-block",
+                  padding: "8px 20px",
+                  fontSize: 14,
+                  fontWeight: 500,
+                  borderRadius: 100,
+                  border: "1px solid rgba(29, 185, 84, 0.4)",
+                  color: "#1DB954",
                   backgroundColor: "rgba(29, 185, 84, 0.08)",
                 }}
               >
@@ -208,72 +234,114 @@ export default function AboutPage() {
       </section>
 
       {/* Our Presence */}
-      <section className="py-20 px-6 md:py-28 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <h2
-            className="text-2xl md:text-3xl font-bold mb-3"
-            style={{ color: "#1e6b3c" }}
-            data-i18n="about-presence-title"
-          >
-            Our Presence
-          </h2>
+      <section style={{ padding: "80px 24px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+        <div style={{ maxWidth: 960, margin: "0 auto" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
+            <div style={{ width: 40, height: 2, backgroundColor: "#1DB954" }} />
+            <span
+              style={{
+                fontSize: 13,
+                textTransform: "uppercase",
+                letterSpacing: "0.2em",
+                color: "#1DB954",
+                fontWeight: 600,
+              }}
+            >
+              Our Presence
+            </span>
+          </div>
           <p
-            className="text-base text-gray-500 mb-10 max-w-xl"
+            style={{
+              fontSize: 16,
+              color: "rgba(255,255,255,0.6)",
+              marginBottom: 40,
+              maxWidth: 500,
+              lineHeight: 1.6,
+            }}
             data-i18n="about-presence-subtitle"
           >
             Seven offices across five countries, positioned along key trade
             corridors between Europe, Central Asia, and the Caucasus.
           </p>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
+              gap: 16,
+            }}
+          >
             {offices.map((office) => (
               <div
                 key={office.i18nCity}
-                className="group relative p-6 rounded-lg border border-gray-200 hover:border-[#1DB954] transition-all duration-200 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_20px_rgba(29,185,84,0.12)]"
+                style={{
+                  padding: "24px",
+                  borderRadius: 8,
+                  backgroundColor: "rgba(255,255,255,0.05)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  transition: "border-color 0.2s, background-color 0.2s",
+                }}
               >
-                {office.tag && (
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8 }}>
+                  <h3
+                    style={{ fontSize: 20, fontWeight: 700, color: "#ffffff" }}
+                    data-i18n={office.i18nCity}
+                  >
+                    {office.city}
+                  </h3>
                   <span
-                    className="text-xs uppercase tracking-wider font-semibold mb-2 block"
-                    style={{ color: "#1DB954" }}
+                    style={{
+                      fontSize: 11,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.1em",
+                      padding: "3px 10px",
+                      borderRadius: 100,
+                      backgroundColor: office.tag === "HQ" ? "#1DB954" : "rgba(255,255,255,0.1)",
+                      color: office.tag === "HQ" ? "#163d28" : "rgba(255,255,255,0.6)",
+                      fontWeight: 600,
+                    }}
                   >
                     {office.tag}
                   </span>
-                )}
-                <h3
-                  className="text-xl font-bold mb-2"
-                  style={{ color: "#1e6b3c" }}
-                  data-i18n={office.i18nCity}
-                >
-                  {office.city}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                </div>
+                <p style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", marginBottom: 8 }}>
+                  {office.country}
+                </p>
+                <p style={{ fontSize: 14, color: "rgba(255,255,255,0.75)", lineHeight: 1.5 }}>
                   {office.address}
                 </p>
+                {office.phone && (
+                  <p style={{ fontSize: 14, color: "#1DB954", marginTop: 8 }}>
+                    {office.phone}
+                  </p>
+                )}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Memberships — compact band */}
-      <section
-        className="py-10 px-6"
-        style={{ backgroundColor: "#1e6b3c" }}
-      >
-        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      {/* PLA Membership */}
+      <section style={{ padding: "48px 24px", backgroundColor: "#163d28" }}>
+        <div
+          style={{
+            maxWidth: 960,
+            margin: "0 auto",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+            gap: 16,
+          }}
+        >
           <p
-            className="text-white text-lg font-semibold"
+            style={{ fontSize: 18, fontWeight: 600, color: "#ffffff" }}
             data-i18n="about-pla"
           >
             Proud member of Project Logistics Alliance
           </p>
-          <div
-            className="w-px h-6 hidden sm:block"
-            style={{ backgroundColor: "rgba(255,255,255,0.3)" }}
-          />
           <p
-            className="text-sm"
-            style={{ color: "rgba(255,255,255,0.6)" }}
+            style={{ fontSize: 14, color: "rgba(255,255,255,0.5)" }}
             data-i18n="about-pla-desc"
           >
             A global network of independent project logistics companies

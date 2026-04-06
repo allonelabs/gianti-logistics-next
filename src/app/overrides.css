@@ -155,23 +155,126 @@ html, body {
   color: #1e6b3c !important;
 }
 
-/* Force white links on dark/green background sections */
-.services-section a,
-.locations-section a,
-.footer a,
-.home-fold a,
-.feedback-banner a,
-.banner-section a {
-  color: var(--text-icon--default--main-inverse, #f2fcf1);
+/* ========================================
+   FORCE WHITE TEXT on all dark/green sections
+   ======================================== */
+.services-section,
+.services-section *,
+.locations-section,
+.locations-section *,
+.footer,
+.footer *,
+.home-fold,
+.home-fold *,
+.feedback-banner,
+.feedback-banner *,
+.banner-section,
+.banner-section * {
+  color: #f2fcf1 !important;
 }
 
 /* Keep dropdown links dark (white background popovers) */
-.nav-dropdown__content a,
-.w-dropdown-list a {
-  color: var(--text-icon--default--main, #191a1f) !important;
+.nav-dropdown__content,
+.nav-dropdown__content *,
+.w-dropdown-list,
+.w-dropdown-list * {
+  color: #191a1f !important;
 }
 
-/* About section links stay dark (light background) */
-.about-section a {
-  color: var(--text-icon--default--main, #191a1f);
+/* Navbar CTA button stays black on white */
+.button.button--accent.button--talk-nav,
+.button.button--accent.button--talk-nav * {
+  color: #000000 !important;
+}
+
+/* About section on landing page stays dark text (light background) */
+.about-section,
+.about-section * {
+  color: #191a1f !important;
+}
+.about-section .about-section__subttile {
+  color: #1e6b3c !important;
+}
+
+/* ========================================
+   SERVICES ROW — hover effects
+   ======================================== */
+.services-row {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
+  margin-bottom: 4px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.services-row:hover {
+  background-color: rgba(29, 185, 84, 0.15) !important;
+  box-shadow: inset 0 0 0 1px rgba(29, 185, 84, 0.3);
+}
+.services-row__title {
+  transition: color 0.3s ease, letter-spacing 0.3s ease;
+}
+.services-row:hover .services-row__title {
+  color: #1DB954 !important;
+  letter-spacing: 0.02em;
+}
+.services-row:hover .services-row__content {
+  opacity: 1 !important;
+}
+.service-row__link.w-inline-block {
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+/* ========================================
+   FOOTER — organized layout
+   ======================================== */
+.container.container--footer {
+  gap: 0 !important;
+}
+.footer .brand {
+  margin-bottom: 40px !important;
+}
+.footer__navigation {
+  margin-bottom: 40px !important;
+  padding-bottom: 40px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+.footer__menu {
+  row-gap: 12px !important;
+}
+.footer__link {
+  margin-left: 0 !important;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+.footer__link:hover {
+  opacity: 1;
+}
+.footer__social {
+  padding-bottom: 24px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 24px !important;
+}
+.footer__social a {
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+.footer__social a:hover {
+  opacity: 1;
+}
+.footer__contact {
+  margin-bottom: 16px !important;
+}
+.footer__contact p {
+  margin-bottom: 4px;
+  line-height: 1.8;
+}
+.footer__pla {
+  opacity: 0.6;
+  margin-bottom: 32px !important;
+}
+.footer__navbar {
+  padding-top: 24px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+  opacity: 0.7;
 }
