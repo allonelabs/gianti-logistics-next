@@ -322,7 +322,7 @@ html, body {
 /* Navigation: 4-column grid */
 .footer__navigation {
   display: grid !important;
-  grid-template-columns: repeat(4, 1fr) !important;
+  grid-template-columns: 1fr 0.8fr 2fr 1fr !important;
   gap: 40px !important;
   margin-bottom: 48px !important;
   padding-bottom: 48px !important;
@@ -372,16 +372,23 @@ html, body {
   color: #1DB954 !important;
 }
 
-/* Location items in footer */
+/* Location items in footer — horizontal wrap */
+.footer__list-wrap--locations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  flex-direction: row !important;
+}
 .footer__loc-item {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-.footer__loc-item:last-child {
-  border-bottom: none;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  min-width: 0;
+  flex: 0 0 auto;
 }
 .footer__loc-city {
   font-size: 14px !important;
