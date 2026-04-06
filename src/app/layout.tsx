@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Gianti Logistics - Leading Transport and Logistics Solutions",
   description:
-    "We go beyond the traditional role of a logistics provider; we're your reliable partner in cold chain management. With a rich history rooted in family values and over 25 years of hands-on industry experience, we've grown to become a top-tier 4PL provider.",
+    "Gianti Logistics is a leading transport and logistics provider based in Georgia, specializing in containerized, heavy lift, and project cargo transportation across the Caucasus, CIS, and worldwide. Marine services, terminal operations, and multimodal freight solutions.",
   openGraph: {
     title: "Gianti Logistics - Leading Transport and Logistics Solutions",
     description:
-      "We go beyond the traditional role of a logistics provider; we're your reliable partner in cold chain management.",
+      "Leading transport and logistics provider in Georgia. Containerized, heavy lift, and project cargo. Marine services, terminal operations, multimodal freight.",
     images: ["/images/gianti/logo.png"],
   },
 };
