@@ -12,6 +12,20 @@
   --midnight--900: #22884e !important;
   --midnight--950: #1e6b3c !important;
   --midnight--975: #1a5c35 !important;
+
+  /* Override red accent colors → green */
+  --accent--50: #eefcf2 !important;
+  --accent--100: #d4f8de !important;
+  --accent--200: #b0f3c4 !important;
+  --accent--300: #86eba5 !important;
+  --accent--400: #5ade84 !important;
+  --accent--500: #1DB954 !important;
+  --accent--600: #1a9e50 !important;
+  --accent--700: #178a46 !important;
+  --accent--800: #14753c !important;
+  --accent--900: #116032 !important;
+  --accent--950: #0d4a27 !important;
+  --accent--975: #0a3a1e !important;
 }
 
 /* Fix: Georgian subtitle */
