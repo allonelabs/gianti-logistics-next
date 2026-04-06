@@ -304,50 +304,153 @@ html, body {
 .container.container--footer {
   gap: 0 !important;
 }
-.footer .brand {
-  margin-bottom: 40px !important;
+
+/* Top: logo + tagline */
+.footer__top {
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+.footer__tagline {
+  margin-top: 16px;
+  color: rgba(255, 255, 255, 0.45) !important;
+  font-size: 14px;
+  max-width: 360px;
+  line-height: 1.6;
+}
+
+/* Navigation: 4-column grid */
 .footer__navigation {
-  margin-bottom: 40px !important;
-  padding-bottom: 40px !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 40px !important;
+  margin-bottom: 48px !important;
+  padding-bottom: 48px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
+@media screen and (max-width: 991px) {
+  .footer__navigation {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 32px !important;
+  }
+}
+@media screen and (max-width: 567px) {
+  .footer__navigation {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+}
+
+/* Menu columns */
 .footer__menu {
-  row-gap: 12px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 0 !important;
+}
+.footer__menu .title-2 {
+  margin-bottom: 16px !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ffffff !important;
+  opacity: 1;
+}
+.footer__list-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 .footer__link {
   margin-left: 0 !important;
-  opacity: 0.8;
-  transition: opacity 0.2s ease;
+  font-size: 14px !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  transition: color 0.2s ease;
+  text-decoration: none;
 }
 .footer__link:hover {
-  opacity: 1;
+  color: #1DB954 !important;
 }
-.footer__social {
-  padding-bottom: 24px !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  margin-bottom: 24px !important;
+
+/* Location items in footer */
+.footer__loc-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
-.footer__social a {
-  opacity: 0.8;
-  transition: opacity 0.2s ease;
+.footer__loc-item:last-child {
+  border-bottom: none;
 }
-.footer__social a:hover {
-  opacity: 1;
+.footer__loc-city {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: rgba(255, 255, 255, 0.85) !important;
 }
-.footer__contact {
-  margin-bottom: 16px !important;
+.footer__loc-addr {
+  font-size: 12px !important;
+  color: rgba(255, 255, 255, 0.4) !important;
+  line-height: 1.4;
 }
-.footer__contact p {
-  margin-bottom: 4px;
-  line-height: 1.8;
+.footer__loc-phone {
+  font-size: 12px !important;
+  color: #1DB954 !important;
 }
-.footer__pla {
-  opacity: 0.6;
-  margin-bottom: 32px !important;
+
+/* Contact lines */
+.footer__contact-line {
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-size: 14px;
+  line-height: 1.6;
 }
-.footer__navbar {
-  padding-top: 24px !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
-  opacity: 0.7;
+
+/* Bottom row: social + copyright */
+.footer__bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+@media screen and (max-width: 767px) {
+  .footer__bottom-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+.footer__social-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.footer__social-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6) !important;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer__social-link:hover {
+  color: #1DB954 !important;
+}
+.footer__pla-text {
+  font-size: 12px !important;
+  color: rgba(255, 255, 255, 0.3) !important;
+  padding-left: 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+@media screen and (max-width: 767px) {
+  .footer__pla-text {
+    padding-left: 0;
+    border-left: none;
+  }
+}
+.footer__copyright {
+  opacity: 0.5;
+  font-size: 13px;
+}
+.footer__copyright a {
+  color: rgba(255, 255, 255, 0.7) !important;
 }
