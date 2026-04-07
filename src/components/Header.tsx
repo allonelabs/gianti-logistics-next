@@ -152,7 +152,7 @@ export default function Header() {
                       setServicesOpen(false);
                     }}
                     aria-expanded={locationsOpen}
-                    data-i18n="nav-locations"
+                    data-i18n="locations-label"
                   >
                     Locations
                   </button>
